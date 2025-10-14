@@ -37,25 +37,16 @@ def display_categories():
 
 # TODO: Function 2 - Get expense details from user
 def get_expense_details():
-    """
-    Prompt user for expense amount and description.
-    Validate that amount is a valid number.
-    
-    Returns:
-        dict: Expense with amount and description
-    """
-    # Your code here
-    name = input("What is your name?")
 
     while True:
         amount_text = input("Enter amount (£): ") 
         
         try:
             amount_number = float(amount_text)
-            if amount_number <= 0:
-                print("Amount must be positive!")
-            else:
+            if amount_number > 0:
                 break
+            else:
+                print("Amount must be positive!")
         except ValueError:
             print("Invalid amount! Please enter a number.")
 
