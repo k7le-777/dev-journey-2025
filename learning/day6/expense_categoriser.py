@@ -58,9 +58,6 @@ def get_expense_details():
     }
     return expense
     
-
-
-get_expense_details()
 # TODO: Function 3 - Let user select category
 def select_category():
     """
