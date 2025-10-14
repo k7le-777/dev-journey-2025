@@ -45,9 +45,31 @@ def get_expense_details():
         dict: Expense with amount and description
     """
     # Your code here
-    pass
+    name = input("What is your name?")
+
+    while True:
+        amount_text = input("Enter amount (£): ") 
+        
+        try:
+            amount_number = float(amount_text)
+            if amount_number <= 0:
+                print("Amount must be positive!")
+            else:
+                break
+        except ValueError:
+            print("Invalid amount! Please enter a number.")
+
+    description = input("Enter description: ")
+
+    expense = { 
+        "amount": amount_number,
+        "description": description
+    }
+    return expense
+    
 
 
+get_expense_details()
 # TODO: Function 3 - Let user select category
 def select_category():
     """
