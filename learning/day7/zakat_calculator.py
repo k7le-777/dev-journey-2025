@@ -124,7 +124,17 @@ def calculate_nisab(gold_price, silver_price):
         dict: {'gold_nisab': float, 'silver_nisab': float, 'nisab_used': float}
     """
     # Your code here
-    pass
+    gold_nisab = GOLD_NISAB_GRAMS * gold_price
+    silver_nisab = SILVER_NISAB_GRAMS * silver_price
+
+    nisab_used = min(gold_nisab, silver_nisab)
+
+    return {
+        "gold_nisab": gold_nisab,
+        "silver_nisab": silver_nisab,
+        "nisab_used": nisab_used
+    }
+
 
 
 # TODO: Function 4 - Get user's zakatable assets
