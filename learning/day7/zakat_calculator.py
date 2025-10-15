@@ -75,8 +75,6 @@ def display_introduction():
     
     print("\n" + "=" * 60)
 
-
-display_introduction() 
 # TODO: Function 2 - Get current gold/silver prices
 def get_metal_prices():
     """
@@ -87,7 +85,29 @@ def get_metal_prices():
         dict: {'gold_price': float, 'silver_price': float}
     """
     # Your code here
-    pass
+    while True:
+        try:
+            gold_price = float(input("Enter current gold price per gram (£): "))
+            if gold_price > 0:
+                break
+            else:
+                print("Price must be positive!")
+        except ValueError:
+            print("Invalid input! Please enter a number.")
+    while True:
+        try:
+            silver_price = float(input("Enter current silver price per gram (£): "))
+            if silver_price > 0:
+                break
+            else:
+                print("Price must be positive!")
+        except ValueError:
+            print("Invalid input! Please enter a number.")
+
+    return {
+        "gold_price": gold_price,
+        "silver_price": silver_price
+    }
 
 
 # TODO: Function 3 - Calculate nisab threshold
