@@ -75,18 +75,48 @@ def select_category():
         elif choice == "4": return "Israf"
         else: print("Invalid choice. Enter 1,2,3 or 4.")
 
-select_category()
+
 # TODO: Function 4 - Display expense summary
 def display_summary(expenses):
-    """
-    Show all entered expenses grouped by category.
-    Calculate totals for each category.
     
-    Args:
-        expenses (list): List of expense dictionaries
-    """
-    # Your code here
-    pass
+    print("\n" + "=" * 50)
+    print("EXPENSE SUMMARY - Islamic Categories")
+    print("=" * 50)
+
+    categories = ["Daruriyyat", "Hajiyyat", "Tahsiniyyat", "Israf"]
+
+    grand_total = 0
+    israf_total = 0
+
+    for category in categories:
+        print(f"\n📊 {category}:")
+        category_total = 0
+        has_expenses = False
+
+        for expense in expenses:
+            if expense["category"] == category:
+                has_expenses = True
+                print(f"  • £{expense['amount']:.2f} - {expense['description']}")
+                category_total += expense["amount"]
+
+        if not has_expenses:
+            print("  (No expenses in this category)")
+
+        print(f"  Total: £{category_total:.2f}")
+
+        grand_total += category_total
+        if category == "Israf":
+            israf_total = category_total
+
+    print("\n" + "=" * 50)
+    print(f"TOTAL SPENDING: £{grand_total:.2f}")
+    print("=" * 50)
+
+    if israf_total > 0:
+        print("\n⚠️  WARNING: Wasteful spending detected!")
+        print(f"You spent £{israf_total:.2f} on Israf (wasteful) items.")
+        print("Consider redirecting this to savings or charity.")
+        print("Quran 17:26 - 'Do not spend wastefully'")
 
 
 # TODO: Main program loop
@@ -99,7 +129,12 @@ def main():
     print("Islamic Expense Categorizer")
     print("Building toward Mizaan - Balanced Spending Tracker")
     print("=" * 50)
-    print()
+    print("\nQuranic Foundation: Surah Al-Furqan 25:67")
+    print("'Those who, when they spend, are neither")
+    print("extravagant nor niggardly, but hold a medium")
+    print("way between those extremes.'")
+    print("=" * 50)
+
     
     # Your code here
     # 1. Create empty list for expenses
@@ -110,8 +145,23 @@ def main():
     # 6. Add to list
     # 7. Ask if they want to add another
     # 8. Display summary
-    pass
+    expenses = []
 
+    while True:
+        display_categories
+
+        expense = get_expense_details()
+        category = select_category()
+
+        expense["category"] = category
+        expenses.append(expense)
+        print(f"\n✓ Added: £{expense['amount']:.2f} - {expense['description']} ({category})")
+
+        another = input("\nAdd another expense? (y/n): ")
+        if another.lower() != "y":
+            break
+    
+    display_summary(expenses)
 
 # Run the program
 if __name__ == "__main__":
