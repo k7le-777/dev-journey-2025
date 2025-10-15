@@ -34,7 +34,6 @@ def display_categories():
     print("   - Excessive spending, brand obsession, impulse buys \n")
 
 
-
 # TODO: Function 2 - Get expense details from user
 def get_expense_details():
 
@@ -60,17 +59,23 @@ def get_expense_details():
     
 # TODO: Function 3 - Let user select category
 def select_category():
-    """
-    Display category options and get user's choice.
-    Validate the choice is 1, 2, 3, or 4.
-    
-    Returns:
-        str: Category name (Daruriyyat, Hajiyyat, etc.)
-    """
-    # Your code here
-    pass
 
+    while True:
+        print("\nSelect category:")
+        print("1. Daruriyyat (Essentials)")
+        print("2. Hajiyyat (Needed)")
+        print("3. Tahsiniyyat (Improvements)")
+        print("4. Israf (Wasteful)")
+        
+        choice = input("Enter 1, 2, 3, or 4: ")
 
+        if choice == "1": return "Daruriyyat"
+        elif choice == "2": return "Hajiyyat"
+        elif choice == "3": return "Tahsiniyyat"
+        elif choice == "4": return "Israf"
+        else: print("Invalid choice. Enter 1,2,3 or 4.")
+
+select_category()
 # TODO: Function 4 - Display expense summary
 def display_summary(expenses):
     """
