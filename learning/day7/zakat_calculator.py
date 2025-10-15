@@ -12,13 +12,13 @@ Nisab Thresholds:
 Rate: 2.5% (one-fortieth) on wealth held for one lunar year
 
 Author: Kyle Burns
-Date: January 2025
+Date: OCT 2025
 """
 
 # Constants for nisab calculation
 GOLD_NISAB_GRAMS = 85
 SILVER_NISAB_GRAMS = 595
-ZAKAT_RATE = 0.025  # 2.5%
+ZAKAT_RATE = 0.025 
 
 # TODO: Function 1 - Display zakat introduction
 def display_introduction():
@@ -26,10 +26,57 @@ def display_introduction():
     Display explanation of zakat and its importance.
     Educate user about nisab and zakatable wealth.
     """
-    # Your code here
-    pass
+    print("\n" + "=" * 60)
+    print("UNDERSTANDING ZAKAT - The Third Pillar of Islam")
+    print("=" * 60)
+
+    print("\n📖 What is Zakat?")
+    print("Zakat is obligatory charity - one of the five pillars of Islam.")
+    print("It is a responsibility every Muslim must fulfill once they reach")
+    print("the nisab threshold and their wealth remains above it for one")
+    print("full lunar year (hawl).")
+
+    print("\n💰 What is Nisab?")
+    print("Nisab is the minimum amount of wealth a Muslim must possess")
+    print("before zakat becomes obligatory.")
 
 
+    print("\nNisab thresholds:")
+    print(f"  • Gold: {GOLD_NISAB_GRAMS}g (approximately)")
+    print(f"  • Silver: {SILVER_NISAB_GRAMS}g (approximately)")
+
+    print("\nIf your total wealth is below nisab, zakat is not obligatory.")
+    print("Once your wealth stays above nisab for one lunar year (hawl),")
+    print("you must pay 2.5% of your total zakatable wealth.")
+
+    print("\n📚 Quranic Foundation")
+    print("Surah Al-Baqarah 2:110:")
+    print("'And establish prayer and give zakat...'")
+    print()
+    print("This ayah highlights that zakat is both a spiritual act of")
+    print("worship and a practical form of social welfare in Islam.")
+
+    print("\n✅ What Assets are Zakatable?")
+    print("  • Cash and savings (in bank accounts)")
+    print("  • Gold and silver (jewelry, coins, bullion)")
+    print("  • Investment assets (stocks, shares, bonds)")
+    print("  • Trade goods (business inventory)")
+    print("  • Agricultural produce and livestock")
+    print("  • Rental income and wealth-generating assets")
+
+    print("\n❌ What is NOT Zakatable?")
+    print("  • Primary residence (home you live in)")
+    print("  • Personal transportation (your car)")
+    print("  • Clothing and furniture")
+    print("  • Tools needed for work")
+
+    print("\nNote: These items only become zakatable if held for resale")
+    print("or investment purposes.")
+    
+    print("\n" + "=" * 60)
+
+
+display_introduction() 
 # TODO: Function 2 - Get current gold/silver prices
 def get_metal_prices():
     """
