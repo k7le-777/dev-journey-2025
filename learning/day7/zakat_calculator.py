@@ -137,7 +137,7 @@ def get_zakatable_assets():
     print("\n🥇Gold")
     assets["gold_grams"] = get_positive_number("  Gold in grams (0 if none): ", allow_zero=True)
 
-    print("\n🪙Silver")
+    print("\n🪙 Silver")
     assets["silver_grams"] = get_positive_number("  Silver in grams (0 if none): ", allow_zero=True)
 
     print("\n💼 Business Inventory & Merchandise")
