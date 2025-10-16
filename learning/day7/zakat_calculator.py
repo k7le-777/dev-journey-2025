@@ -173,37 +173,32 @@ def get_zakatable_assets():
     assets["business_inventory"] = get_positive_number("  Amount in inventory/merchandise: £", allow_zero=True)
 
     print("\n📈 Halal Stocks & Investments")
-    assets["stocks_and_investments"] = get_positive_number("  Amount in stocks/investments (strictly Halal): £", allow_zero=True)
+    assets["investments"] = get_positive_number("  Amount in stocks/investments (strictly Halal): £", allow_zero=True)
 
     print("\n💰 Money Owed To You")
     assets["receivable_debts"] = get_positive_number("  Amount owed to you (receivable debts): £", allow_zero=True)
 
     return assets
 
-print("\n=== Testing get_zakatable_assets() ===")
-assets = get_zakatable_assets()
-
-print("\n=== Your Assets ===")
-for key, value in assets.items():
-    print(f"{key}: {value}")
 
 
 # TODO: Function 5 - Calculate total zakatable wealth
 def calculate_total_wealth(assets, gold_price, silver_price):
-    """
-    Calculate total zakatable wealth in currency.
-    Convert gold/silver grams to currency value.
-    
-    Args:
-        assets: Dictionary of all assets
-        gold_price: Price per gram of gold
-        silver_price: Price per gram of silver
-    
-    Returns:
-        float: Total zakatable wealth
-    """
-    # Your code here
-    pass
+   
+    gold_value = assets["gold_grams"] * gold_price
+    silver_value = assets["silver_grams"] * silver_price
+
+    total = (
+        assets["cash"] +
+        gold_value +
+        silver_value +
+        assets["business_inventory"] +
+        assets["investments"] +
+        assets["receivable_debts"]
+    )
+
+    return total
+
 
 
 # TODO: Function 6 - Calculate zakat due
