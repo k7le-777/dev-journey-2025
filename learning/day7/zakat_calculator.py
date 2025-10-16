@@ -213,8 +213,19 @@ def calculate_zakat(total_wealth, nisab):
     Returns:
         dict: {'is_due': bool, 'zakat_amount': float}
     """
-    # Your code here
-    pass
+    if total_wealth >= nisab:
+        zakat_amount = total_wealth * ZAKAT_RATE
+        return {
+            "is_due": True,
+            "zakat_amount": zakat_amount
+        }
+    else:
+        return {
+            "is_due": False,
+            "zakat_amount": 0.0
+        }
+    
+
 
 
 # TODO: Function 7 - Display results
