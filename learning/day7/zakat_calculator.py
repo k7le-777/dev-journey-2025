@@ -138,23 +138,54 @@ def calculate_nisab(gold_price, silver_price):
 
 
 # TODO: Function 4 - Get user's zakatable assets
+
+def get_positive_number(prompt, allow_zero=False):
+    while True:
+        try:
+            value = float(input(prompt))
+            if value > 0 or (allow_zero and value >= 0):
+                return value
+            else:
+                print("Must be positive!" if not allow_zero else "Must be zero or positive!")
+        except ValueError:
+            print("Invalid! Enter a number.")
+
 def get_zakatable_assets():
-    """
-    Prompt user for all zakatable assets.
-    
-    Zakatable assets include:
-    - Cash (savings, checking accounts)
-    - Gold (in grams or value)
-    - Silver (in grams or value)
-    - Business inventory/merchandise
-    - Stocks/investments (halal only)
-    - Money owed to you (receivable debts)
-    
-    Returns:
-        dict: All asset types with values
-    """
-    # Your code here
-    pass
+ 
+    print("\n" + "=" * 60)
+    print("ENTER YOUR ZAKATABLE ASSETS")
+    print("=" * 60)
+    print("Enter 0 for assets you don't have")
+    print("All amounts in GBP (£)\n")
+
+    assets = {}
+
+    print("💵 Cash & Savings")
+    assets["cash"] = get_positive_number("  Amount in savings/checking: £", allow_zero=True)
+
+    print("\n🥇Gold")
+    assets["gold_grams"] = get_positive_number("  Gold in grams (0 if none): ", allow_zero=True)
+
+    print("\n🪙Silver")
+    assets["silver_grams"] = get_positive_number("  Silver in grams (0 if none): ", allow_zero=True)
+
+    print("\n💼 Business Inventory & Merchandise")
+    assets["business_inventory"] = get_positive_number("  Amount in inventory/merchandise: £", allow_zero=True)
+
+    print("\n📈 Halal Stocks & Investments")
+    assets["stocks_and_investments"] = get_positive_number("  Amount in stocks/investments (strictly Halal): £", allow_zero=True)
+
+    print("\n💰 Money Owed To You")
+    assets["receivable_debts"] = get_positive_number("  Amount owed to you (receivable debts): £", allow_zero=True)
+
+    return assets
+
+print("\n=== Testing get_zakatable_assets() ===")
+assets = get_zakatable_assets()
+
+print("\n=== Your Assets ===")
+for key, value in assets.items():
+    print(f"{key}: {value}")
 
 
 # TODO: Function 5 - Calculate total zakatable wealth
