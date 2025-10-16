@@ -30,13 +30,25 @@ console.log("==================================================");
 // ============================================
 
 // Health check endpoint
-app.get("/api/health", (req, res) => {
+// Root route - Welcome page
+app.get('/', (req, res) => {
   res.json({
-    status: "ok",
-    message: "Rizq API is running",
-    timestamp: new Date().toISOString(),
-  });
-});
+    success: true,
+    message: '🕌 Rizq API - Halal Income Opportunities',
+    description: 'Backend API for Rizq platform helping Muslims find verified halal employment',
+    version: '1.0.0',
+    endpoints: {
+      health: '/api/health',
+      jobs: '/api/jobs',
+      single_job: '/api/jobs/:id',
+      search: '/api/jobs/search',
+      stats: '/api/stats'
+    },
+    frontend: process.env.FRONTEND_URL || 'https://rizq-jobs.vercel.app',
+    documentation: 'https://github.com/YOUR_USERNAME/dev-journey-2025',
+    bismillah: 'In the name of Allah, the Most Gracious, the Most Merciful'
+  })
+})
 
 // Get all jobs with optional filters
 app.get("/api/jobs", async (req, res) => {
