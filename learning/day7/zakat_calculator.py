@@ -229,7 +229,7 @@ def calculate_zakat(total_wealth, nisab):
 
 
 # TODO: Function 7 - Display results
-def display_results(assets, total_wealth, nisab, zakat_result):
+def display_results(assets, total_wealth, nisab, zakat_result, gold_price, silver_price):
     """
     Display comprehensive zakat calculation results.
     Show breakdown, educational info, and next steps.
@@ -240,8 +240,129 @@ def display_results(assets, total_wealth, nisab, zakat_result):
         nisab: Nisab threshold used
         zakat_result: Zakat calculation result
     """
-    # Your code here
-    pass
+    # Asset Breakdown
+    print("\n" + "=" * 60)
+    print("ZAKAT CALCULATION RESULTS")
+    print("=" * 60)
+
+    print("\n📊 YOUR ZAKATABLE ASSETS")
+    print("-" * 60)
+
+    gold_value = assets["gold_grams"] * gold_price
+    silver_value = assets["silver_grams"] * silver_price
+
+    print(f"💵 Cash & Savings: £{assets['cash']:.2f}")
+
+    if assets["gold_grams"] > 0:
+        print(f"🥇 Gold: {assets['gold_grams']:.2f}g × £{gold_price:.2f}/g = £{gold_value:.2f}")
+    else:
+        print(f"🥇 Gold: £0.00")
+    
+    if assets["silver_grams"] > 0:
+        print(f"🪙 Silver: {assets['silver_grams']:.2f}g × £{silver_price:.2f}/g = £{silver_value:.2f}")
+    else:
+        print(f"🪙 Silver: £0.00")
+
+        print(f"💼 Business Inventory: £{assets['business_inventory']:.2f}")
+    print(f"📈 Halal Investments: £{assets['investments']:.2f}")
+    print(f"💰 Receivable Debts: £{assets['receivable_debts']:.2f}")
+
+    # Total Wealth
+    print("\n" + "-" * 60)
+    print(f"📈 TOTAL ZAKATABLE WEALTH: £{total_wealth:.2f}")
+    print("-" * 60)
+    # Nisab Info
+    print(f"\n💎 Nisab Threshold Used: £{nisab:.2f}")
+    print(f"   (Based on {SILVER_NISAB_GRAMS}g silver at £{silver_price:.2f}/g)")
+    print(f"   Note: Using silver nisab as it's more charitable")
+
+    # Zakat Result
+    print("\n" + "=" * 60)
+    if zakat_result["is_due"]:
+        print("✅ ZAKAT IS DUE")
+        print("=" * 60)
+        print(f"\n💚 Your Zakat Amount: £{zakat_result['zakat_amount']:.2f}")
+        print(f"   (2.5% of £{total_wealth:.2f})")
+        
+        # Educational content
+        print("\n📖 What This Means:")
+        print("   • You have met the nisab threshold")
+        print("   • Zakat is obligatory (fard) on this wealth")
+        print("   • Ensure this wealth has been in your possession")
+        print("     for one full lunar year (hawl)")
+        
+        print("\n🎯 Next Steps:")
+        print("   1. Verify the hawl (lunar year) requirement is met")
+        print("   2. Distribute your zakat to eligible recipients")
+        print("   3. Make intention (niyyah) for the sake of Allah")
+        
+        print("\n💡 Eligible Recipients (Quran 9:60):")
+        print("   • The poor and needy")
+        print("   • Those employed to collect zakat")
+        print("   • Those whose hearts are to be reconciled")
+        print("   • Those in bondage (freeing slaves/captives)")
+        print("   • Those in debt")
+        print("   • In the cause of Allah")
+        print("   • The wayfarer (stranded traveler)")
+        
+        print("\n📅 Reminder:")
+        print("   Set a date to calculate and pay zakat annually")
+        print("   Many Muslims choose Ramadan for increased reward")
+        
+    else:
+        print("ℹ️  ZAKAT NOT DUE")
+        print("=" * 60)
+        print(f"\nYour wealth (£{total_wealth:.2f}) is below the")
+        print(f"nisab threshold (£{nisab:.2f})")
+        
+        difference = nisab - total_wealth
+        print(f"\nYou would need £{difference:.2f} more to reach nisab")
+        
+        print("\n📖 What This Means:")
+        print("   • Zakat is not obligatory on your current wealth")
+        print("   • Continue building your savings Islamically")
+        print("   • Voluntary charity (sadaqah) is always encouraged")
+        
+        print("\n💚 Consider Sadaqah:")
+        print("   Even though zakat is not due, voluntary charity")
+        print("   (sadaqah) is highly rewarded in Islam:")
+        print("   'Charity does not decrease wealth' - Prophet ﷺ")
+    
+    print("\n" + "=" * 60)
+    print("Alhamdulillah - May Allah accept your obedience")
+    print("=" * 60 + "\n")
+
+# Add test at bottom
+print("\n=== Testing display_results() ===")
+
+# Test case 1: Zakat is due
+test_assets1 = {
+    "cash": 8000,
+    "gold_grams": 100,
+    "silver_grams": 200,
+    "business_inventory": 2000,
+    "investments": 3000,
+    "receivable_debts": 500
+}
+test_wealth1 = 16480  # Total from earlier calculation
+test_nisab1 = 386.75
+test_result1 = {"is_due": True, "zakat_amount": 412.00}
+
+display_results(test_assets1, test_wealth1, test_nisab1, test_result1, 58.50, 0.65)
+
+# Test case 2: Zakat not due
+test_assets2 = {
+    "cash": 200,
+    "gold_grams": 0,
+    "silver_grams": 0,
+    "business_inventory": 0,
+    "investments": 0,
+    "receivable_debts": 0
+}
+test_wealth2 = 200
+test_result2 = {"is_due": False, "zakat_amount": 0.0}
+
+display_results(test_assets2, test_wealth2, test_nisab1, test_result2, 58.50, 0.65)
 
 
 # TODO: Main program
