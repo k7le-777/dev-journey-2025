@@ -294,8 +294,11 @@ app.use((req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`✓ Server listening on port ${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log("✓ Server listening on port", PORT);
+  console.log("🚀 Rizq API Server Running");
+  console.log(`📍 http://localhost:${PORT}`);
+  console.log("🕌 Bismillah - In the name of Allah");
 });
 
 // Test database connection on startup
