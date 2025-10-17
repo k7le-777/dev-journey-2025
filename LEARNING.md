@@ -1,3 +1,76 @@
+## Day 12 - RIZQ DEPLOYED! First Full-Stack App Live!
+
+**Date:** 17 October 2025
+
+### 🎉 MAJOR MILESTONE ACHIEVED!
+
+**Live Application:** https://dev-journey-2025.vercel.app/
+
+### What I Deployed
+Complete full-stack application accessible to anyone on the internet:
+- Frontend: Vercel (React + Vite)
+- Backend: Render (Node.js + Express)  
+- Database: Supabase (PostgreSQL)
+
+### The Journey
+**12 days ago:** Never wrote a line of code
+**Today:** Deployed full-stack application to the internet!
+
+### Technical Achievement
+- 700+ lines of production code
+- 3 cloud services configured and connected
+- 8 halal jobs serving real data
+- Search and filter functionality working
+- Professional UI/UX design
+- Global accessibility (anyone, anywhere can use it!)
+
+### What This Means
+This isn't just a portfolio piece - this is a REAL application that could help Muslims worldwide find halal employment. It's sadaqah jariyah - ongoing charity that benefits people even while I sleep.
+
+### Debugging Victories
+- Fixed double https:// in .env (attention to detail matters!)
+- Configured CORS for production
+- Learned environment variables across platforms
+- Understood local vs production differences
+
+### Skills Mastered Today
+- Cloud deployment (Vercel, Render)
+- Production environment configuration
+- Environment variables management
+- HTTPS and domains
+- CDN deployment
+- Continuous deployment (git push = auto-deploy)
+
+### Emotional Journey
+**Started:** Confused about "what is Vercel?"
+**Middle:** Frustrated with "Failed to fetch" errors
+**End:** PURE JOY seeing it live on the internet! 🎊
+
+### The Moment It Clicked
+When I saw the live URL working with real data from my deployed backend - everything connected. This is what full-stack means!
+
+### Tomorrow's Plan
+Start Mizaan (spending tracker) with confidence.
+I know the pattern now: Plan → Build → Deploy.
+
+### Gratitude
+Alhamdulillah for:
+- The guidance to learn this skill
+- Patience through debugging
+- The ability to serve the ummah through code
+- This being sadaqah jariyah
+
+### Dua
+Ya Allah, make this application a means of helping Muslims find dignified halal work. Let it benefit the ummah and be ongoing charity for me. Accept this work done purely for Your sake. Ameen. 🤲
+
+### Stats
+- Days to deployment: 12
+- Lines of code: 700+
+- Services deployed: 3
+- Lives potentially impacted: Unlimited
+- Feeling: Alhamdulillah! 💚
+
+
 ## Day 10 - Backend API Complete
 
 **Date:** 16 October 2025
