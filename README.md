@@ -1,5 +1,37 @@
 # My 45-Day Software Development Journey
 
+# 🕌 Dev Journey 2025 - Islamic Software Projects
+
+**Portfolio of purpose-driven applications built as sadaqah jariyah**
+
+---
+
+## 🌐 Live Projects
+
+### Rizq - Halal Income Opportunities
+**🔗 Live Site:** https://dev-journey-2025.vercel.app/  
+**📊 Status:** ✅ Deployed & Active
+
+A full-stack web application helping Muslims worldwide find verified halal employment opportunities.
+
+**Features:**
+- 🔍 Search by keywords (title, company, skills)
+- 🌐 Filter by remote opportunities
+- 💼 Filter by job type (Full-Time, Part-Time, Freelance)
+- ✅ 100% Halal verification for all opportunities
+- 📈 Real-time statistics
+
+**Tech Stack:**  
+Frontend: React, Vite, Fetch API  
+Backend: Node.js, Express, PostgreSQL  
+Database: Supabase  
+Deployment: Vercel + Render
+
+**Mission:** Empowering Muslims to find dignified, halal work - implementing the Quranic principle of self-reliance through dignified labor.
+
+---
+
+
 **Start Date:** 08-10-2025 
 **Mission:** Building tools that embody Quranic economic principles and empower the Muslim ummah.
 
